@@ -12,7 +12,7 @@ import glob
 import json
 import os
 from pathlib import Path
-from typing import Dict, List, Optional, Union
+from typing import Dict, List, Optional, Union, Tuple
 
 import cv2
 import imageio
@@ -43,7 +43,7 @@ def as_intrinsics_matrix(intrinsics):
     K[1, 2] = intrinsics[3]
     return K
 
-def from_intrinsics_matrix(K: torch.Tensor) -> tuple[float, float, float, float]:
+def from_intrinsics_matrix(K: torch.Tensor) -> Tuple[float, float, float, float]:
     '''
     Get fx, fy, cx, cy from the intrinsics matrix
     
@@ -1117,7 +1117,7 @@ if __name__ == "__main__":
     )
     dataset = ReplicaDataset(
         config_dict=cfg,
-        basedir="/home/qiao/src/nice-slam/Datasets/Replica",
+        basedir="/home/qiao/src/nice-slam/datasets/Replica",
         sequence="office0",
         start=0,
         end=1900,
